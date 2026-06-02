@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fantasy Baseball 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080c10;
+    --surface: #0e1419;
+    --surface2: #141b22;
+    --surface3: #1a232d;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.13);
+    --gold: #f5c842;
+    --gold2: #e8a800;
+    --silver: #b0bec5;
+    --bronze: #cd7c50;
+    --accent: #00e5a0;
+    --accent2: #00b87a;
+    --red: #ff4757;
+    --blue: #4fc3f7;
+    --text: #e8edf2;
+    --text2: #8a9bb0;
+    --text3: #536070;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ─────────────────────────────────── */
+  .header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border2);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo span { color: var(--text); }
+
+  .header-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    text-align: right;
+  }
+  .header-meta strong { color: var(--accent); display: block; font-size: 12px; }
+
+  /* ── NAV TABS ─────────────────────────────── */
+  .nav {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  .nav-btn {
+    background: none;
+    border: none;
+    color: var(--text2);
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 20px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s;
+    white-space: nowrap;
+  }
+  .nav-btn:hover { color: var(--text); }
+  .nav-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* ── MAIN LAYOUT ─────────────────────────── */
+  .main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* ── SECTION TITLE ─────────────────────── */
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── HERO STATS ─────────────────────────── */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+  }
+  .hero-card.accent::before { background: var(--accent); }
+  .hero-card.blue::before { background: var(--blue); }
+  .hero-card.red::before { background: var(--red); }
+  .hero-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .hero-value {
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+  }
+  .hero-sub {
+    font-size: 11px;
+    color: var(--text2);
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ── STANDINGS TABLE ─────────────────────── */
+  .table-wrap { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead tr {
+    border-bottom: 1px solid var(--border2);
+  }
+  thead th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--text3);
+    text-transform: uppercase;
+    padding: 8px 12px;
+    text-align: right;
+    white-space: nowrap;
+  }
+  thead th:first-child,
+  thead th:nth-child(2) { text-align: left; }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background .15s;
+  }
+  tbody tr:hover { background: var(--surface2); }
+  tbody td {
+    padding: 11px 12px;
+    text-align: right;
+    color: var(--text2);
+    white-space: nowrap;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+  }
+  tbody td:first-child { text-align: left; }
+  tbody td:nth-child(2) { text-align: left; }
+
+  .rank-cell {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    width: 40px;
+    color: var(--text3);
+  }
+  .rank-1 { color: var(--gold); }
+  .rank-2 { color: var(--silver); }
+  .rank-3 { color: var(--bronze); }
+
+  .team-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.03em;
+  }
+  .manager-name {
+    font-size: 11px;
+    color: var(--text3);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+  }
+
+  .stat-hi { color: var(--accent) !important; font-weight: 500; }
+  .stat-lo { color: var(--red) !important; }
+
+  .matchup-pill {
+    background: var(--surface3);
+    border-radius: 3px;
+    padding: 2px 8px;
+    font-size: 11px;
+    display: inline-block;
+  }
+
+  .moves-badge {
+    background: var(--surface3);
+    border-radius: 20px;
+    padding: 2px 8px;
+    font-size: 11px;
+  }
+  .moves-hi { background: rgba(0,229,160,0.1); color: var(--accent); }
+  .moves-lo { background: rgba(255,71,87,0.1); color: var(--red); }
+
+  /* ── LEADERS GRID ───────────────────────── */
+  .leaders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 2rem;
+  }
+
+  .leader-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .leader-card-head {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .leader-stat-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+  .leader-type {
+    font-size: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--text3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .leader-row {
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+    transition: background .15s;
+  }
+  .leader-row:last-child { border-bottom: none; }
+  .leader-row:hover { background: var(--surface3); }
+
+  .leader-pos {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    width: 20px;
+    flex-shrink: 0;
+  }
+  .lpos-1 { color: var(--gold); }
+  .lpos-2 { color: var(--silver); }
+  .lpos-3 { color: var(--bronze); }
+
+  .leader-bar-wrap { flex: 1; }
+  .leader-team { font-size: 12px; color: var(--text); font-weight: 500; margin-bottom: 4px; }
+  .leader-bar-bg { background: var(--surface3); border-radius: 2px; height: 4px; }
+  .leader-bar-fill { background: var(--gold); border-radius: 2px; height: 4px; transition: width .6s ease; }
+  .lbar-accent { background: var(--accent); }
+  .lbar-blue { background: var(--blue); }
+  .lbar-red { background: var(--red); }
+
+  .leader-val {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    min-width: 56px;
+    text-align: right;
+  }
+
+  /* ── TEAM CARDS ─────────────────────────── */
+  .teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+  }
+
+  .team-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .team-card-header {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .tc-rank {
+    font-family: 'Oswald', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--text3);
+    margin-right: 14px;
+    flex-shrink: 0;
+  }
+  .tc-r1 { color: var(--gold); }
+  .tc-r2 { color: var(--silver); }
+  .tc-r3 { color: var(--bronze); }
+
+  .tc-names { flex: 1; }
+  .tc-team {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.1;
+  }
+  .tc-manager { font-size: 12px; color: var(--text3); margin-top: 2px; }
+  .tc-record {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text2);
+    text-align: right;
+  }
+  .tc-record span { display: block; font-size: 10px; color: var(--text3); margin-bottom: 2px; }
+
+  .tc-stats {
+    padding: 12px 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .tc-side-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--text3);
+    text-transform: uppercase;
+    padding: 0 0 6px 0;
+    grid-column: span 1;
+  }
+
+  .tc-stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .tc-left { border-right: 1px solid var(--border); padding-right: 12px; }
+  .tc-right { padding-left: 12px; }
+
+  .tc-stat-item { display: flex; justify-content: space-between; align-items: center; padding: 3px 0; }
+  .tc-stat-key {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 0.08em;
+  }
+  .tc-stat-val {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .tc-analysis {
+    border-top: 1px solid var(--border);
+    padding: 12px 16px;
+  }
+  .tc-analysis-row { display: flex; gap: 10px; margin-bottom: 8px; font-size: 12px; line-height: 1.5; }
+  .tc-analysis-row:last-child { margin-bottom: 0; }
+  .tc-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    height: fit-content;
+    margin-top: 2px;
+  }
+  .tc-tag-green { background: rgba(0,229,160,0.1); color: var(--accent); }
+  .tc-tag-red { background: rgba(255,71,87,0.1); color: var(--red); }
+  .tc-analysis-text { color: var(--text2); }
+
+  /* ── RECAP ──────────────────────────────── */
+  .recap-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 2rem;
+  }
+  @media (max-width: 640px) {
+    .recap-grid { grid-template-columns: 1fr; }
+    .teams-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .main { padding: 1rem; }
+    .header { padding: 0 1rem; }
+  }
+
+  .recap-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.25rem;
+  }
+  .recap-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 12px;
+  }
+
+  .result-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+  }
+  .result-row:last-child { border-bottom: none; }
+  .result-team { color: var(--text); font-weight: 500; }
+  .result-score {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.05em;
+  }
+  .result-w { color: var(--accent); }
+  .result-l { color: var(--red); }
+
+  .week-winner {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--surface2);
+    border: 1px solid rgba(245,200,66,0.2);
+    border-radius: 4px;
+  }
+  .ww-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--gold2);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .ww-team {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .ww-score {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--text2);
+  }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--surface3); border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">⚾ <span>Fantasy</span> Baseball <span style="color:var(--gold)">2026</span></div>
+  <div class="header-meta">
+    <strong id="update-date">Actualizado: 01 Jun 2026</strong>
+    <span>Semana 1 · 10 equipos</span>
+  </div>
+</header>
+
+<nav class="nav">
+  <button class="nav-btn active" onclick="showSection('standings')">La Tabla</button>
+  <button class="nav-btn" onclick="showSection('leaders')">Líderes</button>
+  <button class="nav-btn" onclick="showSection('teams')">Equipos</button>
+  <button class="nav-btn" onclick="showSection('recap')">Recap</button>
+</nav>
+
+<main class="main">
+
+  <!-- ── STANDINGS ─────────────────────────── -->
+  <section id="standings" class="section active">
+    <div id="hero-stats" class="hero-stats"></div>
+    <p class="section-title">Clasificación general</p>
+    <div class="table-wrap">
+      <table id="standings-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Equipo</th>
+            <th>Últ. Enfrentamiento</th>
+            <th>R</th>
+            <th>HR</th>
+            <th>RBI</th>
+            <th>SB</th>
+            <th>AVG</th>
+            <th>OBP</th>
+            <th>SLG</th>
+            <th>K</th>
+            <th>W</th>
+            <th>SV</th>
+            <th>ERA</th>
+            <th>WHIP</th>
+            <th>Moves</th>
+          </tr>
+        </thead>
+        <tbody id="standings-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── LEADERS ─────────────────────────── -->
+  <section id="leaders" class="section">
+    <p class="section-title">Batting leaders</p>
+    <div id="bat-leaders" class="leaders-grid"></div>
+    <p class="section-title">Pitching leaders</p>
+    <div id="pit-leaders" class="leaders-grid"></div>
+  </section>
+
+  <!-- ── TEAMS ─────────────────────────── -->
+  <section id="teams" class="section">
+    <p class="section-title">Fichas de equipo</p>
+    <div id="teams-grid" class="teams-grid"></div>
+  </section>
+
+  <!-- ── RECAP ─────────────────────────── -->
+  <section id="recap" class="section">
+    <p class="section-title">Semana — resultados</p>
+    <div id="recap-content"></div>
+  </section>
+
+</main>
+
+<script>
+// ── DATA ──────────────────────────────────────
+// To update: replace the contents of the `data` variable below,
+// or load from an external file using fetch('./stats.json')
+const data = {"fantasy_league_stats":[{"rank":1,"team":"Team Randy","manager":"Randy Rosario","batting":{"R":407,"HR":113,"RBI":398,"SB":44,"AVG":0.2631,"OBP":0.3507,"SLG":0.4509,"FPCT":0.9937},"pitching":{"K":580,"QS":34,"W":36,"SV":23,"HD":25,"ERA":3.939,"WHIP":1.233},"last_matchup":"7-6-2","moves":31,"analisis":{"fortalezas":"Una fuerza ofensiva impecable en porcentajes y poder. Lidera la liga en OBP (.3507), SLG (.4509) y fildeo (FPCT .9937), además de estar empatado en la cima de cuadrangulares (113). Su picheo acumulativo (K, W, HD) se mantiene bastante equilibrado.","debilidades":"La velocidad no es lo suyo, situándose abajo en bases robadas (SB: 44). Sus ratios de efectividad (ERA 3.939 y WHIP 1.233) están en la zona media-baja, lo que le impide una dominación completa en el montículo."}},{"rank":2,"team":"Eco's ML","manager":"Ezequiel Castro","batting":{"R":386,"HR":113,"RBI":415,"SB":56,"AVG":0.2539,"OBP":0.3299,"SLG":0.4275,"FPCT":0.9854},"pitching":{"K":625,"QS":39,"W":39,"SV":23,"HD":23,"ERA":4.019,"WHIP":1.209},"last_matchup":"10-4-1","moves":165,"analisis":{"fortalezas":"El terror de las carreras remolcadas, liderando con 415 RBI y compartiendo el primer puesto en HR (113). Su picheo acumula mucho volumen gracias a una actividad de locos en el mercado (165 movimientos), lo que lo tiene arriba en K (625) y victorias (39 W).","debilidades":"Tanta agresividad en la agencia libre le pasa factura en la finura: su ERA (4.019) está alta y su defensa da dolores de cabeza (FPCT .9854, penúltimo de la liga)."}},{"rank":3,"team":"La Kabra","manager":"Johansel Santos","batting":{"R":429,"HR":104,"RBI":344,"SB":84,"AVG":0.2671,"OBP":0.3505,"SLG":0.4365,"FPCT":0.9876},"pitching":{"K":475,"QS":29,"W":30,"SV":24,"HD":8,"ERA":3.870,"WHIP":1.225},"last_matchup":"12-3-0","moves":44},{"rank":4,"team":"The Vipers of SD","manager":"Eduardo L...","batting":{"R":402,"HR":108,"RBI":356,"SB":53,"AVG":0.2471,"OBP":0.3318,"SLG":0.4104,"FPCT":0.9845},"pitching":{"K":543,"QS":46,"W":40,"SV":25,"HD":9,"ERA":3.838,"WHIP":1.232},"last_matchup":"4-10-1","moves":30,"analisis":{"fortalezas":"Una rotación de abridores de primer nivel que domina en salidas de calidad (46 QS) y victorias (40 W). Su ofensiva complementa bien con un gran volumen de poder (108 HR y 356 RBI).","debilidades":"Es el peor equipo defendiendo de la liga (último en FPCT .9845) y su promedio de bateo (.2471) es bajo. Los Holds (9 HD) tampoco reciben atención aquí."}},{"rank":5,"team":"Victor's Spirited Team","manager":"Victor...","batting":{"R":403,"HR":87,"RBI":325,"SB":71,"AVG":0.2494,"OBP":0.3308,"SLG":0.3969,"FPCT":0.9896},"pitching":{"K":405,"QS":30,"W":26,"SV":24,"HD":11,"ERA":3.694,"WHIP":1.147},"last_matchup":"5-8-2","moves":30,"analisis":{"fortalezas":"Excelente control de ratios de picheo, brillando con el segundo mejor WHIP (1.147) y una sólida efectividad (ERA 3.694). En las bases tiene excelentes piernas (71 SB, 2º de la liga) y sus bateadores rara vez cometen errores en el campo (2º en FPCT).","debilidades":"Severa falta de fuerza a la hora de batear; está en el fondo en HR (87) y SLG (.3969). En el montículo, su picheo casi no genera ponches (405 K), siendo el más bajo entre los mánagers activos."}},{"rank":6,"team":"Leonardo alexander","manager":"Leonardo alexander","batting":{"R":330,"HR":82,"RBI":333,"SB":29,"AVG":0.2465,"OBP":0.3239,"SLG":0.3981,"FPCT":0.9865},"pitching":{"K":518,"QS":32,"W":35,"SV":18,"HD":5,"ERA":3.303,"WHIP":1.252},"last_matchup":"8-5-2","moves":37,"analisis":{"fortalezas":"El cuerpo de lanzadores es sumamente efectivo, logrando mantener la segunda mejor efectividad de la liga con una excelente ERA de 3.303.","debilidades":"Ofensiva en estado crítico. Ocupa el sótano de la liga en HR (82) y SB (29), y es penúltimo en carreras anotadas (330). Si sus lanzadores no rescatan los ratios por la mínima, el equipo se queda sin herramientas para competir. Su bullpen intermedio da pena (5 HD)."}},{"rank":7,"team":"Pi-thons","manager":"Bill Montilla","batting":{"R":344,"HR":91,"RBI":342,"SB":44,"AVG":0.2455,"OBP":0.3255,"SLG":0.4081,"FPCT":0.9876},"pitching":{"K":626,"QS":41,"W":46,"SV":30,"HD":27,"ERA":3.313,"WHIP":1.159},"last_matchup":"12-2-1","moves":39,"analisis":{"fortalezas":"El titán indiscutible del montículo. Destruye a la oposición liderando en K (626), victorias (46 W) y Holds (27), además de ser segundo en QS y SV. Todo esto con ratios de élite (ERA 3.313 y WHIP 1.159).","debilidades":"El bateo genera bostezo. Está sumido en los últimos puestos en promedio de bateo (AVG .2455) y OBP (.3255), anotando a cuentagotas. Vive y muere estrictamente por lo que hagan sus lanzadores."}},{"rank":8,"team":"Joel's Scary Team","manager":"Joel Baez","batting":{"R":352,"HR":101,"RBI":344,"SB":68,"AVG":0.2515,"OBP":0.3301,"SLG":0.4229,"FPCT":0.9890},"pitching":{"K":418,"QS":23,"W":21,"SV":3,"HD":8,"ERA":4.164,"WHIP":1.264},"last_matchup":"3-12-0","moves":4,"analisis":{"fortalezas":"Una ofensiva bastante equilibrada con una respetable cuota de poder (101 HR) y una gran velocidad en las bases (68 SB, 3º de la liga). Su defensa responde bien.","debilidades":"El picheo está en cuidados intensivos. Tiene el peor WHIP de la liga (1.264), una ERA preocupante (4.164) y apenas 3 SV. Con solo 4 movimientos hechos en toda la temporada, la inactividad le está costando la vida."}},{"rank":9,"team":"Reyes de Jalisco","manager":"Gabriel Sá...","batting":{"R":332,"HR":87,"RBI":317,"SB":40,"AVG":0.2521,"OBP":0.3362,"SLG":0.4369,"FPCT":0.9866},"pitching":{"K":345,"QS":29,"W":24,"SV":1,"HD":12,"ERA":3.229,"WHIP":1.138},"last_matchup":"6-7-2","moves":0,"analisis":{"fortalezas":"Tienen los mejores ratios de picheo de todo el torneo, instalados en el primer lugar en ERA (3.229) y WHIP (1.138). Cada vez que lanzan, ponen candado.","debilidades":"El contador de movimientos está congelado en 0. Al no realizar ajustes ni rotaciones, está en el fondo absoluto en acumulación de picheo (345 K) y solo 1 SV. Su ofensiva tampoco genera suficiente volumen por la misma falta de actividad."}},{"rank":10,"team":"Payanoboi's Team","manager":"Rameses...","batting":{"R":325,"HR":92,"RBI":309,"SB":54,"AVG":0.2405,"OBP":0.3211,"SLG":0.4221,"FPCT":0.9890},"pitching":{"K":407,"QS":19,"W":19,"SV":41,"HD":6,"ERA":4.154,"WHIP":1.174},"last_matchup":"2-12-1","moves":0,"analisis":{"fortalezas":"El dueño absoluto de las de cerrar partidos, acumulando un espectacular 41 SV que deja atrás a cualquiera. Su WHIP (1.174) es notable y defiende bien.","debilidades":"Al igual que Jalisco, tiene 0 movimientos, lo que hundió su temporada. Su ofensiva es la peor de la liga por amplio margen (último en R, RBI, AVG y OBP). Además, sus abridores son un fantasma: último en victorias (19 W) y salidas de calidad (19 QS)."}}]};
+
+const teams = data.fantasy_league_stats;
+
+// ── HELPERS ────────────────────────────────────
+function fmt(val, decimals = 0) {
+  if (typeof val === 'number') return decimals > 0 ? val.toFixed(decimals) : val;
+  return val;
+}
+function fmtAvg(val) { return val.toFixed(4).replace('0.', '.'); }
+
+function getVals(key, src) {
+  return teams.map(t => src === 'bat' ? t.batting[key] : t.pitching[key]);
+}
+function maxVal(arr) { return Math.max(...arr); }
+function minVal(arr) { return Math.min(...arr); }
+
+function isHiGood(key) {
+  // ERA and WHIP: lower is better
+  return !['ERA','WHIP'].includes(key);
+}
+
+function hiClass(val, arr, key) {
+  const hi = maxVal(arr), lo = minVal(arr);
+  if (isHiGood(key)) {
+    if (val === hi) return 'stat-hi';
+    if (val === lo) return 'stat-lo';
+  } else {
+    if (val === lo) return 'stat-hi';
+    if (val === hi) return 'stat-lo';
+  }
+  return '';
+}
+
+// ── NAVIGATION ───────────────────────────────
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ── BUILD HERO STATS ─────────────────────────
+function buildHero() {
+  const leader = teams[0];
+  const topHR = [...teams].sort((a,b) => b.batting.HR - a.batting.HR)[0];
+  const topRBI = [...teams].sort((a,b) => b.batting.RBI - a.batting.RBI)[0];
+  const topK = [...teams].sort((a,b) => b.pitching.K - a.pitching.K)[0];
+  const topSV = [...teams].sort((a,b) => b.pitching.SV - a.pitching.SV)[0];
+  const bestERA = [...teams].sort((a,b) => a.pitching.ERA - b.pitching.ERA)[0];
+
+  const cards = [
+    { label: '# 1 overall', value: leader.team, sub: leader.manager, cls: '' },
+    { label: 'HR leader', value: topHR.batting.HR, sub: topHR.team, cls: '' },
+    { label: 'RBI leader', value: topRBI.batting.RBI, sub: topRBI.team, cls: '' },
+    { label: 'K leader', value: topK.pitching.K, sub: topK.team, cls: 'accent' },
+    { label: 'SV leader', value: topSV.pitching.SV, sub: topSV.team, cls: 'blue' },
+    { label: 'Best ERA', value: bestERA.pitching.ERA.toFixed(3), sub: bestERA.team, cls: 'red' },
+  ];
+
+  document.getElementById('hero-stats').innerHTML = cards.map(c => `
+    <div class="hero-card ${c.cls}">
+      <div class="hero-label">${c.label}</div>
+      <div class="hero-value">${c.value}</div>
+      <div class="hero-sub">${c.sub}</div>
+    </div>
+  `).join('');
+}
+
+// ── BUILD STANDINGS ──────────────────────────
+function buildStandings() {
+  const batKeys = ['R','HR','RBI','SB'];
+  const batRatios = ['AVG','OBP','SLG'];
+  const pitKeys = ['K','W','SV'];
+  const pitRatios = ['ERA','WHIP'];
+
+  const allArrays = {};
+  [...batKeys,...batRatios].forEach(k => allArrays[k] = teams.map(t => t.batting[k]));
+  [...pitKeys,...pitRatios].forEach(k => allArrays[k] = teams.map(t => t.pitching[k]));
+
+  function rankClass(r) { return r===1?'rank-1':r===2?'rank-2':r===3?'rank-3':''; }
+
+  const rows = teams.map(t => {
+    const moveCls = t.moves >= 100 ? 'moves-hi' : t.moves === 0 ? 'moves-lo' : '';
+    return `<tr>
+      <td class="rank-cell ${rankClass(t.rank)}">${t.rank}</td>
+      <td>
+        <div class="team-name">${t.team}</div>
+        <div class="manager-name">${t.manager}</div>
+      </td>
+      <td><span class="matchup-pill">${t.last_matchup}</span></td>
+      ${batKeys.map(k => `<td class="${hiClass(t.batting[k], allArrays[k], k)}">${t.batting[k]}</td>`).join('')}
+      ${batRatios.map(k => `<td class="${hiClass(t.batting[k], allArrays[k], k)}">${fmtAvg(t.batting[k])}</td>`).join('')}
+      ${pitKeys.map(k => `<td class="${hiClass(t.pitching[k], allArrays[k], k)}">${t.pitching[k]}</td>`).join('')}
+      ${pitRatios.map(k => `<td class="${hiClass(t.pitching[k], allArrays[k], k)}">${t.pitching[k].toFixed(3)}</td>`).join('')}
+      <td><span class="moves-badge ${moveCls}">${t.moves}</span></td>
+    </tr>`;
+  });
+
+  document.getElementById('standings-tbody').innerHTML = rows.join('');
+}
+
+// ── BUILD LEADERS ────────────────────────────
+function buildLeaders() {
+  const batStats = [
+    { key: 'R',   label: 'Carreras (R)',    src: 'bat', color: '' },
+    { key: 'HR',  label: 'Home Runs (HR)',  src: 'bat', color: '' },
+    { key: 'RBI', label: 'RBI',             src: 'bat', color: '' },
+    { key: 'SB',  label: 'Bases Robadas',   src: 'bat', color: 'lbar-accent' },
+    { key: 'AVG', label: 'Promedio (AVG)',  src: 'bat', color: '', decimals: 4 },
+    { key: 'SLG', label: 'Slugging (SLG)', src: 'bat', color: '', decimals: 4 },
+  ];
+  const pitStats = [
+    { key: 'K',    label: 'Ponches (K)',    src: 'pit', color: 'lbar-blue' },
+    { key: 'W',    label: 'Victorias (W)',  src: 'pit', color: 'lbar-blue' },
+    { key: 'QS',   label: 'Salidas Calidad', src: 'pit', color: 'lbar-blue' },
+    { key: 'SV',   label: 'Salvamentos (SV)', src: 'pit', color: 'lbar-accent' },
+    { key: 'HD',   label: 'Holds (HD)',     src: 'pit', color: 'lbar-accent' },
+    { key: 'ERA',  label: 'Efectividad (ERA)', src: 'pit', color: 'lbar-red', invert: true },
+    { key: 'WHIP', label: 'WHIP',           src: 'pit', color: 'lbar-red', invert: true },
+  ];
+
+  function renderLeaderCard(stat) {
+    const sorted = [...teams].sort((a, b) => {
+      const va = stat.src === 'bat' ? a.batting[stat.key] : a.pitching[stat.key];
+      const vb = stat.src === 'bat' ? b.batting[stat.key] : b.pitching[stat.key];
+      return stat.invert ? va - vb : vb - va;
+    }).slice(0, 3);
+
+    const topVal = stat.src === 'bat' ? sorted[0].batting[stat.key] : sorted[0].pitching[stat.key];
+    const posCls = ['lpos-1','lpos-2','lpos-3'];
+    const posLabel = ['1º','2º','3º'];
+
+    const rows = sorted.map((t, i) => {
+      const val = stat.src === 'bat' ? t.batting[stat.key] : t.pitching[stat.key];
+      const pct = stat.invert ? (topVal / val) * 100 : (val / topVal) * 100;
+      const display = stat.decimals ? fmtAvg(val) : val;
+      return `<div class="leader-row">
+        <div class="leader-pos ${posCls[i]}">${posLabel[i]}</div>
+        <div class="leader-bar-wrap">
+          <div class="leader-team">${t.team}</div>
+          <div class="leader-bar-bg"><div class="leader-bar-fill ${stat.color}" style="width:${pct.toFixed(1)}%"></div></div>
+        </div>
+        <div class="leader-val">${display}</div>
+      </div>`;
+    }).join('');
+
+    return `<div class="leader-card">
+      <div class="leader-card-head">
+        <span class="leader-stat-name">${stat.label}</span>
+        <span class="leader-type">${stat.src === 'bat' ? 'Batting' : 'Pitching'}</span>
+      </div>
+      ${rows}
+    </div>`;
+  }
+
+  document.getElementById('bat-leaders').innerHTML = batStats.map(renderLeaderCard).join('');
+  document.getElementById('pit-leaders').innerHTML = pitStats.map(renderLeaderCard).join('');
+}
+
+// ── BUILD TEAM CARDS ──────────────────────────
+function buildTeams() {
+  function rankCls(r) { return r<=3 ? `tc-r${r}` : ''; }
+
+  const cards = teams.map(t => {
+    const analysis = t.analisis ? `
+      <div class="tc-analysis">
+        <div class="tc-analysis-row">
+          <span class="tc-tag tc-tag-green">✓ Fortaleza</span>
+          <span class="tc-analysis-text">${t.analisis.fortalezas}</span>
+        </div>
+        <div class="tc-analysis-row">
+          <span class="tc-tag tc-tag-red">✗ Debilidad</span>
+          <span class="tc-analysis-text">${t.analisis.debilidades}</span>
+        </div>
+      </div>` : '';
+
+    return `<div class="team-card">
+      <div class="team-card-header">
+        <div class="tc-rank ${rankCls(t.rank)}">${t.rank}</div>
+        <div class="tc-names">
+          <div class="tc-team">${t.team}</div>
+          <div class="tc-manager">${t.manager}</div>
+        </div>
+        <div class="tc-record">
+          <span>Últ. matchup</span>
+          ${t.last_matchup}
+        </div>
+      </div>
+      <div style="display:flex; padding:12px 16px; border-bottom:1px solid var(--border)">
+        <div style="flex:1; border-right:1px solid var(--border); padding-right:12px;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Batting</div>
+          ${[['R',t.batting.R],['HR',t.batting.HR],['RBI',t.batting.RBI],['SB',t.batting.SB],['AVG',fmtAvg(t.batting.AVG)],['OBP',fmtAvg(t.batting.OBP)],['SLG',fmtAvg(t.batting.SLG)]].map(([k,v])=>`
+          <div class="tc-stat-item"><span class="tc-stat-key">${k}</span><span class="tc-stat-val">${v}</span></div>`).join('')}
+        </div>
+        <div style="flex:1; padding-left:12px;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Pitching</div>
+          ${[['K',t.pitching.K],['QS',t.pitching.QS],['W',t.pitching.W],['SV',t.pitching.SV],['HD',t.pitching.HD],['ERA',t.pitching.ERA.toFixed(3)],['WHIP',t.pitching.WHIP.toFixed(3)]].map(([k,v])=>`
+          <div class="tc-stat-item"><span class="tc-stat-key">${k}</span><span class="tc-stat-val">${v}</span></div>`).join('')}
+          <div class="tc-stat-item" style="margin-top:4px;padding-top:4px;border-top:1px solid var(--border)">
+            <span class="tc-stat-key">MOVES</span>
+            <span class="tc-stat-val" style="${t.moves===0?'color:var(--red)':t.moves>100?'color:var(--accent)':''}">${t.moves}</span>
+          </div>
+        </div>
+      </div>
+      ${analysis}
+    </div>`;
+  });
+
+  document.getElementById('teams-grid').innerHTML = cards.join('');
+}
+
+// ── BUILD RECAP ───────────────────────────────
+function buildRecap() {
+  // Sort by last matchup wins (first number)
+  const sorted = [...teams].sort((a, b) => {
+    const aw = parseInt(a.last_matchup.split('-')[0]);
+    const bw = parseInt(b.last_matchup.split('-')[0]);
+    return bw - aw;
+  });
+
+  const weekWinner = sorted[0];
+  const weekLoser = sorted[sorted.length - 1];
+
+  const resultRows = teams.map(t => {
+    const parts = t.last_matchup.split('-');
+    const w = parseInt(parts[0]), l = parseInt(parts[1]);
+    const wClass = w > l ? 'result-w' : w < l ? 'result-l' : '';
+    return `<div class="result-row">
+      <span class="result-team">${t.rank}. ${t.team}</span>
+      <span class="result-score ${wClass}">${t.last_matchup}</span>
+    </div>`;
+  }).join('');
+
+  // Top performers this week
+  const topBat = [...teams].sort((a,b) => b.batting.HR - a.batting.HR)[0];
+  const topPit = [...teams].sort((a,b) => a.pitching.ERA - b.pitching.ERA)[0];
+  const mostMoves = [...teams].sort((a,b) => b.moves - a.moves)[0];
+  const leastMoves = [...teams].filter(t=>t.moves===0);
+
+  document.getElementById('recap-content').innerHTML = `
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+      <div class="week-winner">
+        <div class="ww-label">🏆 mejor semana</div>
+        <div class="ww-team">${weekWinner.team}</div>
+        <div class="ww-score">${weekWinner.last_matchup} en enfrentamientos</div>
+      </div>
+      <div class="week-winner" style="border-color:rgba(255,71,87,0.2)">
+        <div class="ww-label" style="color:var(--red)">💀 peor semana</div>
+        <div class="ww-team" style="color:var(--red)">${weekLoser.team}</div>
+        <div class="ww-score">${weekLoser.last_matchup} en enfrentamientos</div>
+      </div>
+    </div>
+    <div class="recap-grid">
+      <div class="recap-card">
+        <h3>Resultados de la semana</h3>
+        ${resultRows}
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="recap-card">
+          <h3>Destacados</h3>
+          <div class="result-row">
+            <span class="result-team">💣 Más HR — ${topBat.team}</span>
+            <span class="result-score" style="color:var(--gold)">${topBat.batting.HR} HR</span>
+          </div>
+          <div class="result-row">
+            <span class="result-team">🔒 Mejor ERA — ${topPit.team}</span>
+            <span class="result-score" style="color:var(--accent)">${topPit.pitching.ERA.toFixed(3)}</span>
+          </div>
+          <div class="result-row">
+            <span class="result-team">🔥 Más activo — ${mostMoves.team}</span>
+            <span class="result-score" style="color:var(--blue)">${mostMoves.moves} moves</span>
+          </div>
+          ${leastMoves.length > 0 ? `<div class="result-row">
+            <span class="result-team">😴 Sin moves — ${leastMoves.map(t=>t.team).join(', ')}</span>
+            <span class="result-score" style="color:var(--red)">0</span>
+          </div>` : ''}
+        </div>
+        <div class="recap-card">
+          <h3>Liga en números</h3>
+          <div class="result-row">
+            <span style="color:var(--text2)">Total HR en liga</span>
+            <span class="result-score" style="color:var(--gold)">${teams.reduce((s,t)=>s+t.batting.HR,0)}</span>
+          </div>
+          <div class="result-row">
+            <span style="color:var(--text2)">Total RBI en liga</span>
+            <span class="result-score">${teams.reduce((s,t)=>s+t.batting.RBI,0)}</span>
+          </div>
+          <div class="result-row">
+            <span style="color:var(--text2)">Total K en liga</span>
+            <span class="result-score" style="color:var(--blue)">${teams.reduce((s,t)=>s+t.pitching.K,0)}</span>
+          </div>
+          <div class="result-row">
+            <span style="color:var(--text2)">Total SV en liga</span>
+            <span class="result-score" style="color:var(--accent)">${teams.reduce((s,t)=>s+t.pitching.SV,0)}</span>
+          </div>
+          <div class="result-row">
+            <span style="color:var(--text2)">Moves totales</span>
+            <span class="result-score">${teams.reduce((s,t)=>s+t.moves,0)}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// ── INIT ─────────────────────────────────────
+buildHero();
+buildStandings();
+buildLeaders();
+buildTeams();
+buildRecap();
+</script>
+</body>
+</html>
