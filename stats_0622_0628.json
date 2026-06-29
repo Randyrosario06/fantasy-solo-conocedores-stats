@@ -1,0 +1,324 @@
+{
+  "fantasy_league_stats": [
+    {
+      "rank": 1,
+      "team": "Team Randy",
+      "manager": "Randy Rosario",
+      "batting": {
+        "R": 553,
+        "HR": 161,
+        "RBI": 573,
+        "SB": 60,
+        "AVG": 0.2572,
+        "OBP": 0.3393,
+        "SLG": 0.4453,
+        "FPCT": 0.9933
+      },
+      "pitching": {
+        "K": 832,
+        "QS": 47,
+        "W": 56,
+        "SV": 29,
+        "HD": 36,
+        "ERA": 3.927,
+        "WHIP": 1.237
+      },
+      "last_matchup": "5-9-1",
+      "moves": 45,
+      "analisis": {
+        "fortalezas": "Sigue destacando en volumen ofensivo y poder (HR/RBI) y mantiene un guante de élite (.9933 FPCT).",
+        "debilidades": "Sus promedios (AVG/OBP/SLG) disminuyeron esta semana. La velocidad es moderada.",
+        "mejoro": "Los ratios de pitcheo mejoraron notablemente; la ERA bajó a 3.927 y el WHIP mejoró significativamente de 1.262 a 1.237.",
+        "empeoro": "Bajaron sus porcentajes de bateo (AVG descendió a .2572 y OBP a .3393)."
+      }
+    },
+    {
+      "rank": 2,
+      "team": "Eco's ML",
+      "manager": "Ezequiel Castro",
+      "batting": {
+        "R": 541,
+        "HR": 155,
+        "RBI": 578,
+        "SB": 83,
+        "AVG": 0.2547,
+        "OBP": 0.3284,
+        "SLG": 0.4262,
+        "FPCT": 0.9856
+      },
+      "pitching": {
+        "K": 850,
+        "QS": 50,
+        "W": 54,
+        "SV": 35,
+        "HD": 33,
+        "ERA": 4.149,
+        "WHIP": 1.217
+      },
+      "last_matchup": "3-10-2",
+      "moves": 229,
+      "analisis": {
+        "fortalezas": "Domina la liga en Carreras Impulsadas (578 RBI) y mantiene un altísimo volumen de ponches.",
+        "debilidades": "Bajos porcentajes finos en bateo y una efectividad colectiva aún alta (4.149 ERA).",
+        "mejoro": "Añadió buenos ponches (+66 K) y bajó marginalmente tanto su ERA como su WHIP (1.217).",
+        "empeoro": "Su porcentaje de Slugging continuó cayendo hasta .4262."
+      }
+    },
+    {
+      "rank": 3,
+      "team": "La Kabra",
+      "manager": "Johansel Santos",
+      "batting": {
+        "R": 616,
+        "HR": 165,
+        "RBI": 518,
+        "SB": 114,
+        "AVG": 0.2646,
+        "OBP": 0.3481,
+        "SLG": 0.4439,
+        "FPCT": 0.9872
+      },
+      "pitching": {
+        "K": 697,
+        "QS": 46,
+        "W": 50,
+        "SV": 35,
+        "HD": 16,
+        "ERA": 3.746,
+        "WHIP": 1.205
+      },
+      "last_matchup": "10-3-2",
+      "moves": 67,
+      "analisis": {
+        "fortalezas": "Destruye en Carreras Anotadas (616), Bases Robadas (114) y mantiene los mejores promedios generales de la liga.",
+        "debilidades": "Sigue por debajo en acumulación total de ponches frente a los líderes de volumen.",
+        "mejoro": "Registró un impresionante aumento de poder con +19 HR y +50 RBI en una sola semana, además de sumar 7 valiosas victorias (50 W).",
+        "empeoro": "Pequeñas flexiones hacia abajo en AVG (.2646) y OBP (.3481) debido a la fluctuación natural de la semana."
+      }
+    },
+    {
+      "rank": 4,
+      "team": "The Vipers of SD",
+      "manager": "Eduardo L...",
+      "batting": {
+        "R": 607,
+        "HR": 177,
+        "RBI": 533,
+        "SB": 77,
+        "AVG": 0.2548,
+        "OBP": 0.3403,
+        "SLG": 0.4414,
+        "FPCT": 0.9814
+      },
+      "pitching": {
+        "K": 786,
+        "QS": 60,
+        "W": 57,
+        "SV": 39,
+        "HD": 21,
+        "ERA": 3.862,
+        "WHIP": 1.229
+      },
+      "last_matchup": "9-5-1",
+      "moves": 45,
+      "analisis": {
+        "fortalezas": "Líder indiscutible en Jonrones (177 HR) y Salidas de Calidad (60 QS).",
+        "debilidades": "Mantiene el peor porcentaje de fildeo de la liga (.9814 FPCT).",
+        "mejoro": "Excelente semana monticular bajando su ERA drásticamente a 3.862 y mejorando su WHIP a 1.229. Sumó 6 victorias.",
+        "empeoro": "Ligeros descensos en promedios de bateo (AVG .2548 y OBP .3403)."
+      }
+    },
+    {
+      "rank": 5,
+      "team": "Victor's Spirited Team",
+      "manager": "Victor...",
+      "batting": {
+        "R": 554,
+        "HR": 130,
+        "RBI": 489,
+        "SB": 98,
+        "AVG": 0.2560,
+        "OBP": 0.3328,
+        "SLG": 0.4124,
+        "FPCT": 0.9901
+      },
+      "pitching": {
+        "K": 606,
+        "QS": 44,
+        "W": 35,
+        "SV": 32,
+        "HD": 11,
+        "ERA": 4.286,
+        "WHIP": 1.236
+      },
+      "last_matchup": "8-6-1",
+      "moves": 33,
+      "analisis": {
+        "fortalezas": "Muy buen rendimiento en bases robadas (98 SB) y excelente porcentaje de fildeo (.9901).",
+        "debilidades": "Su rotación carece de ponches determinantes y sufre de una baja cuota de poder a largo plazo.",
+        "mejoro": "Tuvo un repunte ofensivo mejorando su AVG (.2560) y OBP (.3328), sumando 9 HR.",
+        "empeoro": "El pitcheo colapsó severamente; la ERA escaló a un preocupante 4.286 y su WHIP saltó a 1.236."
+      }
+    },
+    {
+      "rank": 6,
+      "team": "Pi-thons",
+      "manager": "Bill Montilla",
+      "batting": {
+        "R": 492,
+        "HR": 130,
+        "RBI": 494,
+        "SB": 68,
+        "AVG": 0.2503,
+        "OBP": 0.3288,
+        "SLG": 0.4140,
+        "FPCT": 0.9868
+      },
+      "pitching": {
+        "K": 863,
+        "QS": 53,
+        "W": 56,
+        "SV": 39,
+        "HD": 36,
+        "ERA": 3.365,
+        "WHIP": 1.174
+      },
+      "last_matchup": "12-1-2",
+      "moves": 54,
+      "analisis": {
+        "fortalezas": "El titán del picheo absoluto, liderando en K (863), ERA (3.365) y colíder en Holds (36).",
+        "debilidades": "Históricamente rezagado en volumen de carreras anotadas y jonrones a nivel de liga.",
+        "mejoro": "Semana de ensueño triturando con un 12-1-2; bajó su ERA a un impresionante 3.365 y su WHIP a 1.174, mientras sus porcentajes ofensivos subieron exponencialmente.",
+        "empeoro": "Ninguno de relevancia; dominó todas sus líneas con absoluta solvencia."
+      }
+    },
+    {
+      "rank": 7,
+      "team": "Joel's Scary Team",
+      "manager": "Joel Baez",
+      "batting": {
+        "R": 495,
+        "HR": 131,
+        "RBI": 461,
+        "SB": 93,
+        "AVG": 0.2506,
+        "OBP": 0.3274,
+        "SLG": 0.4116,
+        "FPCT": 0.9889
+      },
+      "pitching": {
+        "K": 625,
+        "QS": 36,
+        "W": 30,
+        "SV": 4,
+        "HD": 13,
+        "ERA": 4.133,
+        "WHIP": 1.246
+      },
+      "last_matchup": "6-9-0",
+      "moves": 15,
+      "analisis": {
+        "fortalezas": "Sigue aportando excelente velocidad en las colchonetas sumando 93 SB.",
+        "debilidades": "El bullpen sigue nulo en salvamentos y la rotación tiene pocos acumulados de valor.",
+        "mejoro": "Logró recortar ligeramente su preocupante efectividad bajando la ERA a 4.133 y acumulando 5 victorias más (30 W).",
+        "empeoro": "Bajón ofensivo notable en sus tres porcentajes principales (AVG cayó a .2506, OBP a .3274 y SLG a .4116)."
+      }
+    },
+    {
+      "rank": 8,
+      "team": "Leonardo alexander",
+      "manager": "Leonardo alexander",
+      "batting": {
+        "R": 489,
+        "HR": 124,
+        "RBI": 479,
+        "SB": 44,
+        "AVG": 0.2471,
+        "OBP": 0.3208,
+        "SLG": 0.4026,
+        "FPCT": 0.9863
+      },
+      "pitching": {
+        "K": 744,
+        "QS": 47,
+        "W": 48,
+        "SV": 27,
+        "HD": 9,
+        "ERA": 3.751,
+        "WHIP": 1.275
+      },
+      "last_matchup": "1-12-2",
+      "moves": 52,
+      "analisis": {
+        "fortalezas": "Consistencia moderada aportando remolcadas y acumulación decente de ponches.",
+        "debilidades": "El peor control de picheo entre managers activos y nula velocidad en las bases (44 SB).",
+        "mejoro": "Pequeño respiro en el promedio de bateo global subiendo a .2471 y sumando 7 jonrones más.",
+        "empeoro": "Crisis absoluta en el control monticular; su WHIP se disparó críticamente de 1.251 a 1.275, elevando también su ERA a 3.751."
+      }
+    },
+    {
+      "rank": 9,
+      "team": "Payanoboi's Team",
+      "manager": "Rameses...",
+      "batting": {
+        "R": 459,
+        "HR": 135,
+        "RBI": 444,
+        "SB": 75,
+        "AVG": 0.2465,
+        "OBP": 0.3249,
+        "SLG": 0.4352,
+        "FPCT": 0.9899
+      },
+      "pitching": {
+        "K": 577,
+        "QS": 27,
+        "W": 29,
+        "SV": 50,
+        "HD": 7,
+        "ERA": 4.134,
+        "WHIP": 1.171
+      },
+      "last_matchup": "9-6-0",
+      "moves": 0,
+      "analisis": {
+        "fortalezas": "Candado absoluto del relevo liderando con 50 SV y un WHIP de élite inalterable (1.171).",
+        "debilidades": "Sotanero absoluto en volumen por inactividad, reflejado en apenas 27 QS y bajas anotadas.",
+        "mejoro": "Alcanzó la marca de los 50 salvamentos y vio un ligero despertar en sus porcentajes ofensivos (OBP .3249).",
+        "empeoro": "Su efectividad limpia continuó cediendo terreno elevándose levemente de 4.100 a 4.134."
+      }
+    },
+    {
+      "rank": 10,
+      "team": "Reyes de Jalisco",
+      "manager": "Gabriel Sá...",
+      "batting": {
+        "R": 462,
+        "HR": 127,
+        "RBI": 441,
+        "SB": 52,
+        "AVG": 0.2493,
+        "OBP": 0.3312,
+        "SLG": 0.4371,
+        "FPCT": 0.9859
+      },
+      "pitching": {
+        "K": 503,
+        "QS": 37,
+        "W": 33,
+        "SV": 2,
+        "HD": 17,
+        "ERA": 3.533,
+        "WHIP": 1.194
+      },
+      "last_matchup": "6-8-1",
+      "moves": 0,
+      "analisis": {
+        "fortalezas": "Excelente efectividad de sus abridores colocándose como la segunda mejor ERA de la liga (3.533).",
+        "debilidades": "Bullpen prácticamente inexistente con solo 2 SV acumulados e inactividad total de movimientos.",
+        "mejoro": "Logró pulir sus ratios monticulares bajando la ERA a 3.533 y mejorando el WHIP por debajo de 1.20 (1.194).",
+        "empeoro": "Descenso paulatino en sus porcentajes ofensivos (AVG bajó de .2509 a .2493 y OBP a .3312)."
+      }
+    }
+  ]
+}
