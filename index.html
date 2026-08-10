@@ -538,7 +538,7 @@
 <header class="header">
   <div class="logo">⚾ <span>Fantasy</span> Baseball <span style="color:var(--gold)">2026</span></div>
   <div class="header-meta">
-    <strong id="update-date">Actualizado: 3 Agos 2026</strong>
+    <strong id="update-date">Actualizado: 10 Agos 2026</strong>
     <span>Semana 1 · 10 equipos</span>
   </div>
 </header>
@@ -611,329 +611,308 @@
 // or load from an external file using fetch('./stats.json')
 const data = {
   "fantasy_league_stats": [
-  {
-    rank: 1,
-    team: "Eco's ML",
-    manager: "Ezequiel Castro",
-    record: "150-87-18",
-    moves: 287,
-    last_matchup: "9-6-0",
-    batting: {
-      R: 765,
-      HR: 209,
-      RBI: 796,
-      SB: 108,
-      AVG: 0.2597,
-      OBP: 0.3341,
-      SLG: 0.4340,
-      FPCT: 0.9878
+    {
+      "rank": 1,
+      "team": "Team Randy",
+      "manager": "Randy Rosario",
+      "batting": {
+        "R": 785,
+        "HR": 239,
+        "RBI": 825,
+        "SB": 78,
+        "AVG": 0.2562,
+        "OBP": 0.3325,
+        "SLG": 0.4479,
+        "FPCT": 0.9924
+      },
+      "pitching": {
+        "K": 1089,
+        "QS": 66,
+        "W": 77,
+        "SV": 43,
+        "HD": 52,
+        "ERA": 3.748,
+        "WHIP": 1.201
+      },
+      "last_matchup": "13-2-0",
+      "moves": 53,
+      "analisis": {
+        "fortalezas": "Perfil muy balanceado y actualmente líder de la liga. Combina poder (239 HR, 825 RBI), excelente producción ofensiva (.4479 SLG) y el mejor fildeo de la liga (.9924 FPCT), además de liderar en victorias (77 W) y aportar volumen sólido de K/QS.",
+        "debilidades": "La velocidad sigue siendo relativamente baja (78 SB) y AVG/OBP no están entre los mejores de la liga. Su WHIP es sólido, pero no constituye una ventaja dominante."
+      }
     },
-    pitching: {
-      K: 1102,
-      QS: 64,
-      W: 71,
-      SV: 48,
-      HD: 45,
-      ERA: 4.110,
-      WHIP: 1.222
+    {
+      "rank": 2,
+      "team": "Eco's ML",
+      "manager": "Ezequiel Castro",
+      "batting": {
+        "R": 800,
+        "HR": 216,
+        "RBI": 831,
+        "SB": 113,
+        "AVG": 0.2589,
+        "OBP": 0.3344,
+        "SLG": 0.4293,
+        "FPCT": 0.9878
+      },
+      "pitching": {
+        "K": 1162,
+        "QS": 68,
+        "W": 80,
+        "SV": 51,
+        "HD": 55,
+        "ERA": 4.113,
+        "WHIP": 1.228
+      },
+      "last_matchup": "6-9-0",
+      "moves": 312,
+      "analisis": {
+        "fortalezas": "Máximo volumen ofensivo y monticular: 831 RBI, 1162 K y 80 W, además de 55 Holds. La hiperactividad en waivers (312 movimientos) le permite maximizar volumen y competir en múltiples categorías.",
+        "debilidades": "El ERA de 4.113 es una vulnerabilidad estructural y el SLG (.4293) ha perdido fuerza. El volumen de streaming puede seguir castigando ERA/WHIP si no se seleccionan cuidadosamente los pitchers."
+      }
     },
-    analisis: {
-      fortalezas: "Volumen masivo de Carreras, HR, RBI y Ponches acumulados gracias a hiperactividad en waivers (287 moves).",
-      debilidades: "Ratios de pitcheo (ERA 4.110) vulnerables por el uso intensivo de streamers.",
-      tendencia: "➡️ Estable"
+    {
+      "rank": 3,
+      "team": "The Vipers of SD",
+      "manager": "Eduardo L...",
+      "batting": {
+        "R": 882,
+        "HR": 257,
+        "RBI": 766,
+        "SB": 111,
+        "AVG": 0.2558,
+        "OBP": 0.3418,
+        "SLG": 0.4478,
+        "FPCT": 0.9822
+      },
+      "pitching": {
+        "K": 1087,
+        "QS": 78,
+        "W": 75,
+        "SV": 60,
+        "HD": 32,
+        "ERA": 3.948,
+        "WHIP": 1.229
+      },
+      "last_matchup": "9-6-0",
+      "moves": 59,
+      "analisis": {
+        "fortalezas": "La ofensiva más explosiva de la liga: líder absoluto en R (882) y HR (257), con 766 RBI y .4478 SLG. También lidera QS (78), tiene 75 W y 60 SV, por lo que posee un techo competitivo enorme.",
+        "debilidades": "El .9822 FPCT es claramente el punto débil. ERA/WHIP son competitivos pero no de élite, y el bullpen tiene menos Holds que los principales rivales."
+      }
+    },
+    {
+      "rank": 4,
+      "team": "La Kabra",
+      "manager": "Johansel Santos",
+      "batting": {
+        "R": 839,
+        "HR": 231,
+        "RBI": 722,
+        "SB": 147,
+        "AVG": 0.2588,
+        "OBP": 0.3404,
+        "SLG": 0.4378,
+        "FPCT": 0.9858
+      },
+      "pitching": {
+        "K": 1009,
+        "QS": 67,
+        "W": 71,
+        "SV": 52,
+        "HD": 30,
+        "ERA": 3.677,
+        "WHIP": 1.191
+      },
+      "last_matchup": "3-11-1",
+      "moves": 94,
+      "analisis": {
+        "fortalezas": "Roster estadísticamente muy balanceado, liderado por 147 SB, 839 R, .2588 AVG y .3404 OBP. El pitcheo combina 1009 K, 67 QS, 71 W, 52 SV y excelentes ratios (3.677 ERA, 1.191 WHIP).",
+        "debilidades": "El último matchup fue muy negativo (3-11-1) y la producción de RBI/SLG no es tan dominante como la de los mejores equipos de poder. El .9858 FPCT también deja margen de mejora."
+      }
+    },
+    {
+      "rank": 5,
+      "team": "Pi-thons",
+      "manager": "Bill Montilla",
+      "batting": {
+        "R": 690,
+        "HR": 177,
+        "RBI": 695,
+        "SB": 97,
+        "AVG": 0.251,
+        "OBP": 0.3267,
+        "SLG": 0.41,
+        "FPCT": 0.9854
+      },
+      "pitching": {
+        "K": 1217,
+        "QS": 73,
+        "W": 76,
+        "SV": 70,
+        "HD": 49,
+        "ERA": 3.48,
+        "WHIP": 1.181
+      },
+      "last_matchup": "13-1-1",
+      "moves": 72,
+      "analisis": {
+        "fortalezas": "El pitcheo más dominante en volumen y calidad: líder en K (1217), con 73 QS, 76 W, 70 SV, 49 HD, 3.480 ERA y 1.181 WHIP. Viene de un excelente 13-1-1.",
+        "debilidades": "La ofensiva es el principal lastre: 690 R, 177 HR, 695 RBI, .2510 AVG y .4100 SLG. Necesita convertir su enorme ventaja de pitcheo en victorias de matchup."
+      }
+    },
+    {
+      "rank": 6,
+      "team": "Victor's Spirited Team",
+      "manager": "Victor...",
+      "batting": {
+        "R": 731,
+        "HR": 168,
+        "RBI": 651,
+        "SB": 128,
+        "AVG": 0.249,
+        "OBP": 0.3255,
+        "SLG": 0.3994,
+        "FPCT": 0.9909
+      },
+      "pitching": {
+        "K": 925,
+        "QS": 67,
+        "W": 60,
+        "SV": 46,
+        "HD": 13,
+        "ERA": 4.057,
+        "WHIP": 1.247
+      },
+      "last_matchup": "8-7-0",
+      "moves": 33,
+      "analisis": {
+        "fortalezas": "Velocidad (128 SB) y defensa (.9909 FPCT) son sus principales ventajas. El volumen de pitcheo también es razonable con 925 K, 67 QS y 60 W.",
+        "debilidades": "La ofensiva tiene poco poder (.3994 SLG, 168 HR) y el pitcheo de ratios sigue siendo vulnerable (4.057 ERA, 1.247 WHIP). Los 13 HD son una debilidad estructural."
+      }
+    },
+    {
+      "rank": 7,
+      "team": "Joel's Scary Team",
+      "manager": "Joel Baez",
+      "batting": {
+        "R": 712,
+        "HR": 191,
+        "RBI": 663,
+        "SB": 129,
+        "AVG": 0.2495,
+        "OBP": 0.3272,
+        "SLG": 0.4111,
+        "FPCT": 0.9883
+      },
+      "pitching": {
+        "K": 979,
+        "QS": 66,
+        "W": 50,
+        "SV": 9,
+        "HD": 25,
+        "ERA": 3.671,
+        "WHIP": 1.184
+      },
+      "last_matchup": "11-3-1",
+      "moves": 24,
+      "analisis": {
+        "fortalezas": "Viene en fuerte recuperación: 979 K, 66 QS, 3.671 ERA y 1.184 WHIP, además de 129 SB y un buen 11-3-1 reciente.",
+        "debilidades": "Los 9 SV son una desventaja enorme y el AVG (.2495) sigue siendo bajo. También tiene poco volumen de W (50) frente a los equipos de arriba."
+      }
+    },
+    {
+      "rank": 8,
+      "team": "Leonardo alexander",
+      "manager": "Leonardo alexander",
+      "batting": {
+        "R": 696,
+        "HR": 170,
+        "RBI": 683,
+        "SB": 76,
+        "AVG": 0.2539,
+        "OBP": 0.323,
+        "SLG": 0.4058,
+        "FPCT": 0.9874
+      },
+      "pitching": {
+        "K": 1058,
+        "QS": 69,
+        "W": 71,
+        "SV": 31,
+        "HD": 25,
+        "ERA": 3.8,
+        "WHIP": 1.269
+      },
+      "last_matchup": "7-8-0",
+      "moves": 69,
+      "analisis": {
+        "fortalezas": "Buen volumen de pitcheo con 1058 K, 69 QS y 71 W, acompañado de un ERA competitivo de 3.800.",
+        "debilidades": "El WHIP de 1.269 es el peor de la liga y la ofensiva tiene poca velocidad (76 SB) y poco SLG (.4058). El 7-8-0 reciente tampoco ayuda a su posición."
+      }
+    },
+    {
+      "rank": 9,
+      "team": "Reyes de Jalisco",
+      "manager": "Gabriel Sá...",
+      "batting": {
+        "R": 664,
+        "HR": 202,
+        "RBI": 638,
+        "SB": 75,
+        "AVG": 0.2527,
+        "OBP": 0.3372,
+        "SLG": 0.4506,
+        "FPCT": 0.9841
+      },
+      "pitching": {
+        "K": 697,
+        "QS": 50,
+        "W": 41,
+        "SV": 2,
+        "HD": 17,
+        "ERA": 3.64,
+        "WHIP": 1.175
+      },
+      "last_matchup": "2-13-0",
+      "moves": 0,
+      "analisis": {
+        "fortalezas": "Excelente perfil de ratios: 3.640 ERA, 1.175 WHIP y .4506 SLG. Tiene 202 HR, lo que le permite competir en poder ofensivo.",
+        "debilidades": "El volumen es insuficiente (697 K, 50 QS, 41 W) y prácticamente abandona SV (2). No ha realizado movimientos (0), mientras que el último matchup fue 2-13-0."
+      }
+    },
+    {
+      "rank": 10,
+      "team": "Payanoboi's Team",
+      "manager": "Rameses...",
+      "batting": {
+        "R": 631,
+        "HR": 178,
+        "RBI": 572,
+        "SB": 109,
+        "AVG": 0.2408,
+        "OBP": 0.32,
+        "SLG": 0.4201,
+        "FPCT": 0.9886
+      },
+      "pitching": {
+        "K": 796,
+        "QS": 41,
+        "W": 40,
+        "SV": 72,
+        "HD": 7,
+        "ERA": 3.902,
+        "WHIP": 1.168
+      },
+      "last_matchup": "1-13-1",
+      "moves": 0,
+      "analisis": {
+        "fortalezas": "Especialista claro en SV (72) y posee un WHIP excelente (1.168). También mantiene 109 SB.",
+        "debilidades": "Es muy débil en producción ofensiva (.2408 AVG, .3200 OBP, 631 R, 572 RBI) y volumen de pitcheo (41 QS, 40 W, 7 HD). El roster permanece sin movimientos."
+      }
     }
-  },
-  {
-    rank: 2,
-    team: "Team Randy",
-    manager: "Randy Rosario",
-    record: "149-94-12",
-    moves: 115,
-    last_matchup: "6-9-0",
-    batting: {
-      R: 712,
-      HR: 222,
-      RBI: 730,
-      SB: 74,
-      AVG: 0.2550,
-      OBP: 0.3321,
-      SLG: 0.4410,
-      FPCT: 0.9925
-    },
-    pitching: {
-      K: 1015,
-      QS: 62,
-      W: 75,
-      SV: 38,
-      HD: 39,
-      ERA: 3.736,
-      WHIP: 1.193
-    },
-    analisis: {
-      fortalezas: "Poder de largo metraje (222 HR), rotación ganadora (75 W) y fildeo impecable (FPCT .9925, #1).",
-      debilidades: "Escasa velocidad en las bases (74 SB) y dependencia severa del batazo largo.",
-      tendencia: "⚠️ En descenso"
-    }
-  },
-  {
-    rank: 3,
-    team: "The Vipers of SD",
-    manager: "Victor S.",
-    record: "142-96-17",
-    moves: 180,
-    last_matchup: "9-5-1",
-    batting: {
-      R: 833,
-      HR: 241,
-      RBI: 810,
-      SB: 105,
-      AVG: 0.2612,
-      OBP: 0.3385,
-      SLG: 0.4520,
-      FPCT: 0.9822
-    },
-    pitching: {
-      K: 1045,
-      QS: 77,
-      W: 68,
-      SV: 56,
-      HD: 30,
-      ERA: 3.894,
-      WHIP: 1.215
-    },
-    analisis: {
-      fortalezas: "Ofensiva demoledora (#1 en HR con 241 y R con 833) y rotación duradera (#1 en QS con 77).",
-      debilidades: "Peor porcentaje de fildeo activo de la liga (.9822 FPCT).",
-      tendencia: "🔥 En ascenso"
-    }
-  },
-  {
-    rank: 4,
-    team: "La Kabra",
-    manager: "Carlos / Kabra",
-    record: "137-103-15",
-    moves: 145,
-    last_matchup: "11-3-1",
-    batting: {
-      R: 720,
-      HR: 195,
-      RBI: 715,
-      SB: 141,
-      AVG: 0.2591,
-      OBP: 0.3405,
-      SLG: 0.4310,
-      FPCT: 0.9863
-    },
-    pitching: {
-      K: 947,
-      QS: 55,
-      W: 59,
-      SV: 32,
-      HD: 35,
-      ERA: 3.717,
-      WHIP: 1.189
-    },
-    analisis: {
-      fortalezas: "Líder absoluto en bases robadas (141 SB), OBP de élite (.3405) y ratios de pitcheo quirúrgicos.",
-      debilidades: "Leve déficit de ponches acumulados en comparación con el Top 3.",
-      tendencia: "🔥 En ascenso"
-    }
-  },
-  {
-    rank: 5,
-    team: "Victor's Spirited Team",
-    manager: "Victor",
-    record: "113-127-15",
-    moves: 92,
-    last_matchup: "5-9-1",
-    batting: {
-      R: 635,
-      HR: 158,
-      RBI: 610,
-      SB: 126,
-      AVG: 0.2496,
-      OBP: 0.3220,
-      SLG: 0.3980,
-      FPCT: 0.9909
-    },
-    pitching: {
-      K: 890,
-      QS: 48,
-      W: 49,
-      SV: 46,
-      HD: 28,
-      ERA: 4.105,
-      WHIP: 1.256
-    },
-    analisis: {
-      fortalezas: "Velocidad constante (126 SB) y sólida defensa (.9909 FPCT).",
-      debilidades: "Falta crítica de poder (SLG sub-400 y solo 158 HR) y tráfico constante permitido en el montículo.",
-      tendencia: "⚠️ En descenso"
-    }
-  },
-  {
-    rank: 6,
-    team: "Pi-thons",
-    manager: "Pi-thons",
-    record: "109-126-20",
-    moves: 110,
-    last_matchup: "8-7-0",
-    batting: {
-      R: 640,
-      HR: 185,
-      RBI: 625,
-      SB: 88,
-      AVG: 0.2516,
-      OBP: 0.3276,
-      SLG: 0.4210,
-      FPCT: 0.9848
-    },
-    pitching: {
-      K: 1150,
-      QS: 69,
-      W: 58,
-      SV: 61,
-      HD: 32,
-      ERA: 3.489,
-      WHIP: 1.185
-    },
-    analisis: {
-      fortalezas: "Pitcheo dominante e intocable (#1 en K con 1150 y #1 en ERA con 3.489).",
-      debilidades: "Ofensiva inconstante en porcentaje de bateo y carreras anotadas.",
-      tendencia: "➡️ Estable"
-    }
-  },
-  {
-    rank: 7,
-    team: "Joel's Scary Team",
-    manager: "Joel",
-    record: "111-133-11",
-    moves: 88,
-    last_matchup: "7-6-2",
-    batting: {
-      R: 620,
-      HR: 172,
-      RBI: 605,
-      SB: 121,
-      AVG: 0.2479,
-      OBP: 0.3210,
-      SLG: 0.4150,
-      FPCT: 0.9880
-    },
-    pitching: {
-      K: 915,
-      QS: 52,
-      W: 50,
-      SV: 9,
-      HD: 20,
-      ERA: 3.798,
-      WHIP: 1.195
-    },
-    analisis: {
-      fortalezas: "Recuperación espectacular de su efectividad (3.798 ERA) y buena velocidad (121 SB).",
-      debilidades: "Bullpen abandonado (solo 9 Salvamentos en toda la temporada).",
-      tendencia: "🔥 En ascenso"
-    }
-  },
-  {
-    rank: 8,
-    team: "Leonardo alexander",
-    manager: "Leonardo Alexander",
-    record: "102-131-22",
-    moves: 65,
-    last_matchup: "6-7-2",
-    batting: {
-      R: 610,
-      HR: 168,
-      RBI: 590,
-      SB: 68,
-      AVG: 0.2537,
-      OBP: 0.3231,
-      SLG: 0.4180,
-      FPCT: 0.9874
-    },
-    pitching: {
-      K: 997,
-      QS: 67,
-      W: 52,
-      SV: 35,
-      HD: 25,
-      ERA: 3.765,
-      WHIP: 1.259
-    },
-    analisis: {
-      fortalezas: "Buen volumen de Salidas de Calidad (67 QS) y ponches acumulados.",
-      debilidades: "Casi nula producción de velocidad (68 SB) y el peor WHIP de la liga activa (1.259).",
-      tendencia: "⚠️ En descenso"
-    }
-  },
-  {
-    rank: 9,
-    team: "Reyes de Jalisco",
-    manager: "Gabriel Sá...",
-    record: "95-149-11",
-    moves: 0,
-    last_matchup: "7-8-0",
-    batting: {
-      R: 580,
-      HR: 175,
-      RBI: 560,
-      SB: 62,
-      AVG: 0.2483,
-      OBP: 0.3334,
-      SLG: 0.4520,
-      FPCT: 0.9835
-    },
-    pitching: {
-      K: 680,
-      QS: 48,
-      W: 42,
-      SV: 2,
-      HD: 18,
-      ERA: 3.612,
-      WHIP: 1.177
-    },
-    analisis: {
-      fortalezas: "Gran Slugging (.4520) y efectividad limpia (3.612 ERA).",
-      debilidades: "Inactividad total (0 movimientos). Pérdida sistemática de acumulativas.",
-      tendencia: "⚠️ En descenso"
-    }
-  },
-  {
-    rank: 10,
-    team: "Payanoboi's Team",
-    manager: "Rameses / Payano",
-    record: "89-151-15",
-    moves: 0,
-    last_matchup: "3-11-1",
-    batting: {
-      R: 540,
-      HR: 152,
-      RBI: 520,
-      SB: 78,
-      AVG: 0.2423,
-      OBP: 0.3206,
-      SLG: 0.4180,
-      FPCT: 0.9850
-    },
-    pitching: {
-      K: 630,
-      QS: 39,
-      W: 38,
-      SV: 67,
-      HD: 12,
-      ERA: 4.120,
-      WHIP: 1.164
-    },
-    analisis: {
-      fortalezas: "Líder indiscutible en Salvamentos (67 SV) y mejor WHIP acumulado (1.164).",
-      debilidades: "Último lugar en promedio de bateo (.2423 AVG) y estancamiento por inactividad.",
-      tendencia: "⚠️ En descenso"
-    }
-  }
-]
-};
-
+  ]
+}
 const teams = data.fantasy_league_stats;
 
 // ── HELPERS ────────────────────────────────────
