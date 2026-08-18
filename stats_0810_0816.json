@@ -1,0 +1,304 @@
+{
+  "fantasy_league_stats": [
+    {
+      "rank": 1,
+      "team": "Team Randy",
+      "manager": "Randy Rosario",
+      "batting": {
+        "R": 823,
+        "HR": 249,
+        "RBI": 876,
+        "SB": 81,
+        "AVG": 0.2572,
+        "OBP": 0.3338,
+        "SLG": 0.4472,
+        "FPCT": 0.9927
+      },
+      "pitching": {
+        "K": 1137,
+        "QS": 70,
+        "W": 79,
+        "SV": 44,
+        "HD": 57,
+        "ERA": 3.764,
+        "WHIP": 1.205
+      },
+      "last_matchup": "10-4-1",
+      "moves": null,
+      "analisis": {
+        "fortalezas": "Perfil muy balanceado, con 823 R, 249 HR, 876 RBI, 79 W y 57 HD. También presenta el mejor FPCT (.9927) y un ERA competitivo (3.764).",
+        "debilidades": "La velocidad (81 SB) es baja frente a los líderes, y sus ratios no dominan la liga."
+      }
+    },
+    {
+      "rank": 2,
+      "team": "Eco's ML",
+      "manager": "Ezequiel Castro",
+      "batting": {
+        "R": 837,
+        "HR": 225,
+        "RBI": 868,
+        "SB": 120,
+        "AVG": 0.2583,
+        "OBP": 0.3341,
+        "SLG": 0.4289,
+        "FPCT": 0.9871
+      },
+      "pitching": {
+        "K": 1226,
+        "QS": 70,
+        "W": 82,
+        "SV": 58,
+        "HD": 58,
+        "ERA": 4.153,
+        "WHIP": 1.226
+      },
+      "last_matchup": "9-3-3",
+      "moves": null,
+      "analisis": {
+        "fortalezas": "Gran volumen general: 837 R, 868 RBI, 1226 K, 82 W, 58 SV y 58 HD. Lidera K y comparte el máximo de HD.",
+        "debilidades": "ERA 4.153 es claramente vulnerable y el WHIP 1.226 también queda por detrás de los mejores ratios."
+      }
+    },
+    {
+      "rank": 3,
+      "team": "The Vipers of SD",
+      "manager": "Eduardo L...",
+      "batting": {
+        "R": 927,
+        "HR": 267,
+        "RBI": 796,
+        "SB": 116,
+        "AVG": 0.2552,
+        "OBP": 0.3411,
+        "SLG": 0.4466,
+        "FPCT": 0.9824
+      },
+      "pitching": {
+        "K": 1142,
+        "QS": 83,
+        "W": 82,
+        "SV": 62,
+        "HD": 32,
+        "ERA": 3.858,
+        "WHIP": 1.213
+      },
+      "last_matchup": "9-4-2",
+      "moves": null,
+      "analisis": {
+        "fortalezas": "La ofensiva más explosiva en R (927) y HR (267), además de liderar QS (83), con 82 W y 62 SV.",
+        "debilidades": "FPCT .9824 es el peor entre los diez y los ratios de pitcheo son menos fuertes que los de los líderes en ERA/WHIP."
+      }
+    },
+    {
+      "rank": 4,
+      "team": "La Kabra",
+      "manager": "Johansel Santos",
+      "batting": {
+        "R": 882,
+        "HR": 241,
+        "RBI": 762,
+        "SB": 157,
+        "AVG": 0.2575,
+        "OBP": 0.3388,
+        "SLG": 0.4353,
+        "FPCT": 0.9853
+      },
+      "pitching": {
+        "K": 1061,
+        "QS": 71,
+        "W": 77,
+        "SV": 55,
+        "HD": 33,
+        "ERA": 3.594,
+        "WHIP": 1.188
+      },
+      "last_matchup": "6-6-3",
+      "moves": null,
+      "analisis": {
+        "fortalezas": "Muy fuerte y balanceado: lidera SB (157), tiene 882 R, 241 HR, .2575 AVG, .3388 OBP, 77 W, 55 SV, ERA 3.594 y WHIP 1.188.",
+        "debilidades": "RBI (762), HD (33) y FPCT (.9853) no son sus categorías más fuertes; el 6-6-3 reciente muestra un matchup poco dominante."
+      }
+    },
+    {
+      "rank": 5,
+      "team": "Pi-thons",
+      "manager": "Bill Montilla",
+      "batting": {
+        "R": 720,
+        "HR": 187,
+        "RBI": 723,
+        "SB": 102,
+        "AVG": 0.2503,
+        "OBP": 0.3262,
+        "SLG": 0.4095,
+        "FPCT": 0.9853
+      },
+      "pitching": {
+        "K": 1268,
+        "QS": 77,
+        "W": 79,
+        "SV": 73,
+        "HD": 51,
+        "ERA": 3.418,
+        "WHIP": 1.167
+      },
+      "last_matchup": "6-6-3",
+      "moves": null,
+      "analisis": {
+        "fortalezas": "Pitcheo excepcional: líder en K (1268), SV (73), HD (51), ERA (3.418) y WHIP (1.167), con 77 QS y 79 W.",
+        "debilidades": "La ofensiva es su gran debilidad, especialmente R (720), HR (187), .2503 AVG y .4095 SLG."
+      }
+    },
+    {
+      "rank": 6,
+      "team": "Joel's Scary Team",
+      "manager": "Joel Baez",
+      "batting": {
+        "R": 755,
+        "HR": 199,
+        "RBI": 689,
+        "SB": 134,
+        "AVG": 0.2492,
+        "OBP": 0.3283,
+        "SLG": 0.4087,
+        "FPCT": 0.9885
+      },
+      "pitching": {
+        "K": 1028,
+        "QS": 70,
+        "W": 53,
+        "SV": 11,
+        "HD": 31,
+        "ERA": 3.701,
+        "WHIP": 1.198
+      },
+      "last_matchup": "8-6-1",
+      "moves": null,
+      "analisis": {
+        "fortalezas": "Buen volumen ofensivo en SB (134) y un pitcheo de ratios competitivo con 3.701 ERA y 1.198 WHIP.",
+        "debilidades": "W (53) y SV (11) son muy bajos, mientras que AVG (.2492) y SLG (.4087) limitan su producción ofensiva."
+      }
+    },
+    {
+      "rank": 7,
+      "team": "Victor's Spirited Team",
+      "manager": "Victor...",
+      "batting": {
+        "R": 760,
+        "HR": 178,
+        "RBI": 678,
+        "SB": 135,
+        "AVG": 0.2482,
+        "OBP": 0.3259,
+        "SLG": 0.3996,
+        "FPCT": 0.9907
+      },
+      "pitching": {
+        "K": 963,
+        "QS": 71,
+        "W": 61,
+        "SV": 46,
+        "HD": 13,
+        "ERA": 4.046,
+        "WHIP": 1.246
+      },
+      "last_matchup": "6-8-1",
+      "moves": null,
+      "analisis": {
+        "fortalezas": "Velocidad fuerte (135 SB), defensa excelente (.9907) y volumen razonable de QS (71).",
+        "debilidades": "ERA 4.046, WHIP 1.246 y HD 13 son vulnerabilidades importantes, además de un SLG de .3996."
+      }
+    },
+    {
+      "rank": 8,
+      "team": "Leonardo alexander",
+      "manager": "Leonardo...",
+      "batting": {
+        "R": 721,
+        "HR": 175,
+        "RBI": 712,
+        "SB": 83,
+        "AVG": 0.2525,
+        "OBP": 0.3215,
+        "SLG": 0.4024,
+        "FPCT": 0.9878
+      },
+      "pitching": {
+        "K": 1120,
+        "QS": 74,
+        "W": 73,
+        "SV": 33,
+        "HD": 28,
+        "ERA": 3.805,
+        "WHIP": 1.266
+      },
+      "last_matchup": "3-9-3",
+      "moves": null,
+      "analisis": {
+        "fortalezas": "Buen volumen de pitcheo: 1120 K, 74 QS y 73 W; mantiene 175 HR.",
+        "debilidades": "WHIP 1.266 es el peor de la liga y la producción de SB (83) y SLG (.4024) es baja."
+      }
+    },
+    {
+      "rank": 9,
+      "team": "Reyes de Jalisco",
+      "manager": "Gabriel Sá...",
+      "batting": {
+        "R": 700,
+        "HR": 214,
+        "RBI": 672,
+        "SB": 80,
+        "AVG": 0.2509,
+        "OBP": 0.3351,
+        "SLG": 0.4498,
+        "FPCT": 0.9845
+      },
+      "pitching": {
+        "K": 717,
+        "QS": 51,
+        "W": 41,
+        "SV": 2,
+        "HD": 17,
+        "ERA": 3.709,
+        "WHIP": 1.19
+      },
+      "last_matchup": "4-9-2",
+      "moves": null,
+      "analisis": {
+        "fortalezas": "Muy buen perfil de ratios: .4498 SLG, 3.709 ERA y 1.190 WHIP, además de 214 HR.",
+        "debilidades": "El volumen de pitcheo es muy bajo y SV (2) es prácticamente inexistente; también tiene poca velocidad (80 SB)."
+      }
+    },
+    {
+      "rank": 10,
+      "team": "Payanoboi's Team",
+      "manager": "Rameses...",
+      "batting": {
+        "R": 655,
+        "HR": 186,
+        "RBI": 590,
+        "SB": 113,
+        "AVG": 0.2397,
+        "OBP": 0.3182,
+        "SLG": 0.418,
+        "FPCT": 0.9884
+      },
+      "pitching": {
+        "K": 823,
+        "QS": 43,
+        "W": 42,
+        "SV": 76,
+        "HD": 7,
+        "ERA": 3.814,
+        "WHIP": 1.163
+      },
+      "last_matchup": "4-10-1",
+      "moves": null,
+      "analisis": {
+        "fortalezas": "Lidera SV (76) y tiene el mejor WHIP de la liga (1.163), con 113 SB.",
+        "debilidades": "La ofensiva es la más débil en AVG (.2397) y OBP (.3182), además de bajo volumen de R/RBI; también tiene solo 7 HD y 43 QS."
+      }
+    }
+  ]
+}
